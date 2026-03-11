@@ -113,10 +113,6 @@ EKF, Nav2, and controller settings. Launch scripts reference them directly.
 This project is intended as a final assignment; modifications are permitted for
 learning and demonstration purposes.
 
-## 📄 License
-
-Specify license information here (e.g., MIT, Apache 2.0).
-
 ---
 
 > *For more details, explore the source code and configuration directories.*

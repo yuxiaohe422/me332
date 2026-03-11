@@ -1,0 +1,113 @@
+<?xml version="1.0" ?>
+<!-- Gazebo Classic compatible world -->
+<sdf version="1.6">
+  <world name="robot_obstacle_world">
+    <!-- Physics properties -->
+    <physics name="default_physics" type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_update_rate>1000.0</real_time_update_rate>
+    </physics>
+
+    <!-- 环境光和方向光 -->
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+    </scene>
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <direction>-0.5 0.5 -1</direction>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+    </light>
+
+    <!-- 地面平面 -->
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 几个箱子做障碍物 -->
+    <model name="box1">
+      <pose>2 0 0.5 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 1</size></box></geometry>
+          <material><diffuse>1 0 0 1</diffuse></material>
+        </visual>
+        <collision name="collision">
+          <geometry><box><size>1 1 1</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="box2">
+      <pose>2 3 0.5 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 2 1</size></box></geometry>
+        </visual>
+        <collision name="collision">
+          <geometry><box><size>1 2 1</size></box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+    
+    <!-- Pickable object for autonomous picking demo -->
+    <model name="pickup_box">
+      <pose>0.33 0 0.025 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.05</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1.0 0.8 0.0 1</ambient>
+            <diffuse>1.0 0.9 0.0 1</diffuse>
+          </material>
+        </visual>
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <iyy>0.0001</iyy>
+            <izz>0.0001</izz>
+          </inertia>
+        </inertial>
+      </link>
+    </model>
+    
+    <!-- Robot model will be spawned here by the launch file -->
+    
+    <gravity>0 0 -9.8</gravity>
+  </world>
+</sdf>

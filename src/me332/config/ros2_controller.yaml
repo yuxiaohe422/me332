@@ -1,0 +1,32 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+    use_sim_time: true
+    
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+arm_controller:
+  ros__parameters:
+    joints:
+      - base_to_cone
+      - cone_to_lower
+      - lower_to_middle
+      - middle_to_upper
+      - gripper_to_finger_left
+      - gripper_to_finger_right
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+    action_monitor_rate: 20.0  # 监控率 (Hz)
+    allow_partial_joints_goal: true  # 允许部分关节轨迹 (可选)
+    interpolate_from_desired_state: true  # 从当前状态插值
+    constraints:
+      stopped_velocity_tolerance: 0.01  # 停止速度容差
+      goal_time: 0.0  # 目标时间容差 (0 为无限制)

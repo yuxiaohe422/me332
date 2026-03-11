@@ -1,0 +1,30 @@
+# Python dependencies for the me332 ROS2 package
+#
+# Note: core ROS 2 message packages are normally installed via
+# the system ROS 2 installation (apt). They are listed here
+# for documentation and to satisfy tools that read requirements.txt.
+
+# ROS2 python libraries and message packages
+rclpy>=3.0.0
+geometry_msgs
+sensor_msgs
+nav_msgs
+nav2_msgs
+trajectory_msgs
+std_msgs
+
+# Computer vision / perception
+opencv-python>=4.5.5.64
+mediapipe>=0.10.0
+numpy>=1.21.0
+
+# Offline speech recognition (Vosk) and audio I/O
+vosk>=0.3.45
+pyaudio>=0.2.11
+
+# Configuration parsing
+PyYAML>=6.0
+
+# Packaging utilities
+setuptools>=65.0.0
+

@@ -1,0 +1,61 @@
+slam_toolbox:
+  ros__parameters:
+    # 基本参数
+    odom_frame: odom
+    map_frame: map
+    base_frame: base_footprint
+    # 试一下
+    scan_topic: /scan
+    mode: mapping  # 建图模式
+    
+    # 关键参数：确保地图在地面
+    map_origin: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]  # [x, y, z, roll, pitch, yaw]
+    map_start_at_dock: false
+    map_start_pose: [0.0, 0.0, 0.0]  # [x, y, yaw]
+    
+    # 发布参数
+    publish_pose_rate: 20.0
+    publish_pose_covariance: false
+    debug_mode: false
+    
+    # 地图参数
+    resolution: 0.05
+    max_laser_range: 3.5
+    min_laser_range: 0.35
+    minimum_time_interval: 0.5
+    transform_timeout: 1.0
+    
+    # 扫描匹配参数
+    map_update_interval: 0.5
+    throttle_scans: 1
+    use_scan_matching: true
+    use_scan_barycenter: true
+    minimum_travel_distance: 0.05
+    minimum_travel_heading: 0.05
+    scan_buffer_size: 10
+    scan_buffer_maximum_scan_distance: 10.0
+    
+    # 循环检测参数（室内环境重要）
+    loop_search_maximum_distance: 6.0
+    do_loop_closing: true
+    loop_match_minimum_chain_size: 10
+    loop_match_maximum_variance_coarse: 3.0
+    loop_match_minimum_response_coarse: 0.1
+    loop_match_minimum_response_fine: 0.1
+    
+    # 协方差参数
+    covariance_scale: 1.0
+    
+    # 线程参数
+    solver_plugin: solver_plugins::CeresSolver
+    ceres_linear_solver_type: SPARSE_NORMAL_CHOLESKY
+    ceres_preconditioner_type: JACOBI
+    ceres_trust_strategy: LEVENBERG_MARQUARDT
+    ceres_dogleg_type: TRADITIONAL_DOGLEG
+    ceres_loss_function: None
+    
+    # 建图优化参数
+    optimization_radius: 10.0
+    optimization_iterations: 10
+    position_covariance_scale: 1.0
+    orientation_covariance_scale: 1.0

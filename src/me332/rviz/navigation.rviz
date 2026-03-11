@@ -1,0 +1,275 @@
+Panels:
+  - Class: "rviz/Displays"
+    Name: "Displays"
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Name: "Map"
+      Class: "rviz/Map"
+      Enabled: true
+      Topic: "/map"
+      Unreliable: false
+      Queue Size: 10
+    - Name: "TF"
+      Class: "rviz/TF"
+      Enabled: true
+      Show Axes: true
+    - Name: "RobotModel"
+      Class: "rviz/RobotModel"
+      Enabled: true
+      Robot Description: "robot_description"
+    - Name: "LaserScan"
+      Class: "rviz/LaserScan"
+      Enabled: true
+      Topic: "/scan"
+      Color: 16711680
+      Size (m): 0.02
+    - Name: "Pose"
+      Class: "rviz/Pose"
+      Enabled: true
+      Topic: "/amcl_pose"
+  Global Options:
+    Fixed Frame: "map"
+  Window Geometry:
+    x: 25
+    y: 25
+    width: 1280
+    height: 720
+
+[file name]: rviz/navigation.rviz
+[file content begin]
+Panels:
+  - Class: rviz_common/Displays
+    Help Height: 78
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /Status1
+        - /RobotModel1
+        - /Map1
+        - /LaserScan1
+        - /TF1
+        - /ParticleCloud1
+        - /Path2
+        - /Path3
+        - /Polygon1
+        - /Polygon2
+      Splitter Ratio: 0.5
+    Tree Height: 557
+Visualization Manager:
+  Class: ""
+  Displays:
+    # 网格
+    - Alpha: 0.3
+      Cell Size: 1
+      Class: rviz_default_plugins/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Name: Grid
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+    
+    # 机器人模型
+    - Alpha: 0.8
+      Class: rviz_default_plugins/RobotModel
+      Description Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_description
+      Enabled: true
+      Name: RobotModel
+      Visual Enabled: true
+    
+    # TF坐标系
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Marker Scale: 0.5
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+    
+    # 地图
+    - Class: rviz_default_plugins/Map
+      Alpha: 0.7
+      Color Scheme: map
+      Enabled: true
+      Name: Map
+      Topic:
+        Depth: 5
+        Durability Policy: Transient Local
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /map
+    
+    # 激光扫描
+    - Class: rviz_default_plugins/LaserScan
+      Enabled: true
+      Name: LaserScan
+      Queue Size: 100
+      Selectable: true
+      Size (Pixels): 3
+      Style: Points
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /scan
+      Color Transformer: Intensity
+    
+    # AMCL粒子云
+    - Class: rviz_default_plugins/ParticleCloud
+      Alpha: 1.0
+      Color: 0; 255; 0
+      Enabled: true
+      Name: ParticleCloud
+      Pose Array Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /particle_cloud
+      Style: Points
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /particle_cloud
+    
+    # 全局路径
+    - Class: rviz_default_plugins/Path
+      Color: 255; 0; 0
+      Enabled: true
+      Name: Global Plan
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /plan
+    
+    # 局部路径
+    - Class: rviz_default_plugins/Path
+      Color: 0; 255; 0
+      Enabled: true
+      Name: Local Plan
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /local_plan
+    
+    # 全局代价地图
+    - Class: rviz_default_plugins/Map
+      Alpha: 0.3
+      Color Scheme: costmap
+      Enabled: true
+      Name: Global Costmap
+      Topic:
+        Depth: 5
+        Durability Policy: Transient Local
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /global_costmap/costmap
+    
+    # 局部代价地图
+    - Class: rviz_default_plugins/Map
+      Alpha: 0.3
+      Color Scheme: costmap
+      Enabled: true
+      Name: Local Costmap
+      Topic:
+        Depth: 5
+        Durability Policy: Transient Local
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /local_costmap/costmap
+    
+    # 全局代价地图轮廓
+    - Class: rviz_default_plugins/Polygon
+      Color: 255; 255; 0
+      Enabled: false
+      Name: Global Costmap Polygon
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /global_costmap/published_footprint
+      Verbose: false
+    
+    # 局部代价地图轮廓
+    - Class: rviz_default_plugins/Polygon
+      Color: 0; 255; 255
+      Enabled: false
+      Name: Local Costmap Polygon
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /local_costmap/published_footprint
+      Verbose: false
+    
+    # 目标位姿
+    - Class: rviz_default_plugins/Pose
+      Color: 0; 255; 0
+      Enabled: false
+      Name: Goal Pose
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /goal_pose
+    
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: map
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+      Hide Inactive Objects: true
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/FocusCamera
+    - Class: rviz_default_plugins/Measure
+      Line color: 128; 128; 0
+    - Class: rviz_default_plugins/SetGoal
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /goal_pose
+    - Class: rviz_default_plugins/SetInitialPose
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /initialpose
+  Transformation:
+    Current:
+      Class: rviz_default_plugins/TF
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Name: Current View
+      Target Frame: <Fixed Frame>
+      Distance: 10.0
+      Yaw: 0.0
+      Pitch: 0.3
+      Value: Orbit (rviz)
+    Saved: ~
+[file content end]

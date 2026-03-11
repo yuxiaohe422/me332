@@ -1,0 +1,21 @@
+digraph G {
+"arm_upper" -> "gripper_base"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"arm_middle" -> "arm_upper"[label=" Broadcaster: default_authority\nAverage rate: 20.345\nBuffer length: 2.9\nMost recent transform: 4.586\nOldest transform: 1.686\n"];
+"base_footprint" -> "base_link"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"odom" -> "base_footprint"[label=" Broadcaster: default_authority\nAverage rate: 50.98\nBuffer length: 1.02\nMost recent transform: 4.626\nOldest transform: 3.606\n"];
+"base_link" -> "laser_link"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "omni_wheel_back"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "omni_wheel_front"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "base_left_wheel"[label=" Broadcaster: default_authority\nAverage rate: 20.345\nBuffer length: 2.9\nMost recent transform: 4.586\nOldest transform: 1.686\n"];
+"base_link" -> "base_right_wheel"[label=" Broadcaster: default_authority\nAverage rate: 20.345\nBuffer length: 2.9\nMost recent transform: 4.586\nOldest transform: 1.686\n"];
+"base_link" -> "cone_link"[label=" Broadcaster: default_authority\nAverage rate: 20.345\nBuffer length: 2.9\nMost recent transform: 4.586\nOldest transform: 1.686\n"];
+"cone_link" -> "arm_lower"[label=" Broadcaster: default_authority\nAverage rate: 20.345\nBuffer length: 2.9\nMost recent transform: 4.586\nOldest transform: 1.686\n"];
+"gripper_base" -> "finger_left"[label=" Broadcaster: default_authority\nAverage rate: 20.345\nBuffer length: 2.9\nMost recent transform: 4.586\nOldest transform: 1.686\n"];
+"gripper_base" -> "finger_right"[label=" Broadcaster: default_authority\nAverage rate: 20.345\nBuffer length: 2.9\nMost recent transform: 4.586\nOldest transform: 1.686\n"];
+"arm_lower" -> "arm_middle"[label=" Broadcaster: default_authority\nAverage rate: 20.345\nBuffer length: 2.9\nMost recent transform: 4.586\nOldest transform: 1.686\n"];
+"map" -> "odom"[label=" Broadcaster: default_authority\nAverage rate: 11.111\nBuffer length: 0.9\nMost recent transform: 5.6\nOldest transform: 4.7\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1767873111.0173228"[ shape=plaintext ] ;
+}->"map";
+}
